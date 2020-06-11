@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamburger</title>
+  </head>
+  <style>
+    /* Body styles (No required) */
+    body {
+      background-color: #181818;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .btn-hamburger {
+      --size: 400px; /* Size of button */
+      --color: white; /* Color of button */
+      --time: 1000ms; /* time of transition */
+      /* border: calc(var(--size) / 20) solid var(--color); */
+      width: var(--size);
+      height: var(--size);
+      position: relative;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 10s ease-in-out;
+    }
+    .btn-hamburger .line {
+      border-radius: var(--size);
+      background-color: var(--color);
+      height: 10%;
+      width: 80%;
+      position: absolute;
+      transition: transform var(--time) cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    .btn-hamburger .line:nth-child(1) {
+      transform: translateY(calc(var(--size) / 3.3 * -1));
+    }
+    .btn-hamburger .line:nth-child(2) {
+      transition: transform calc(var(--time) / 2)
+        cubic-bezier(0.68, -0.55, 0.27, 1.55) calc(var(--time) / 2);
+    }
+    .btn-hamburger .line:nth-child(3) {
+      transform: translateY(calc(var(--size) / 3.3 * 1));
+    }
+    .btn-hamburger.active .line:nth-child(1) {
+      width: 100%;
+      transform: rotate(45deg);
+    }
+    .btn-hamburger.active .line:nth-child(2) {
+      transform: scaleX(0);
+    }
+    .btn-hamburger.active .line:nth-child(3) {
+      width: 100%;
+      transform: rotate(-45deg);
+    }
+    .btn-hamburger:hover .line {
+      transform: scale3d(10);
+    }
+  </style>
+  <body>
+    <div 
+      onclick="this.classList.toggle('active')"
+      class="btn-hamburger">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </body>
+</html>
