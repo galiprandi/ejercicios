@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link
+      rel="stylesheet"
+      href=" https://galiprandi.github.io/css-toolset.css/css-toolset.min.css"
+    />
+    <style>
+      :root {
+        --text: #333333;
+        --primary: #5f5654;
+        --bg: #ffffff;
+      }
+      .formContainer {
+        min-height: calc(100vh - 2em);
+        margin: auto;
+        display: grid;
+        align-content: center;
+        padding: 3em;
+      }
+      form {
+        margin: auto;
+        max-width: 600px;
+      }
+      form h1 {
+        font-size: 30px;
+      }
+      dialog {
+        border: 0;
+        border-radius: var(--border-radius);
+        background-color: var(--primary);
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 30em;
+        padding: 2em;
+      }
+      button.success {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="formContainer">
+      <form
+        id="form"
+        action="https://formsubmit.co/galiprandi@gmail.com"
+        method="POST"
+      >
+        <fieldset>
+          <h1>Contact Us</h1>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            required
+            placeholder="Your name"
+          />
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email Address"
+          />
+          <textarea
+            id="message"
+            name="body"
+            cols="50"
+            rows="5"
+            required
+            placeholder="Your message"
+          >
+xxx</textarea
+          >
+
+          <button type="submit">Submit</button>
+          <!-- Required by formsubmit.co https://formsubmit.co/documentation -->
+          <input
+            type="hidden"
+            name="_next"
+            value="https://yourdomain.co/thanks.html"
+          />
+          <input type="hidden" name="_subject" value="Message from website !" />
+          <input type="hidden" name="_template" value="box" />
+        </fieldset>
+      </form>
+      <dialog>
+        <h2>Your message has been sent successfully. Thanks</h2>
+        <hr class="Sep" />
+
+        <button class="success" onclick="handleCloseDialog()">Close</button>
+      </dialog>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", formInitialization)
+
+      function formInitialization() {
+        const urlParameters = new URLSearchParams(window.location.search)
+        const formSendOk = urlParameters.has("ok")
+
+        // Open dialog after return
+        if (formSendOk) {
+          const dialog = document
+            .querySelector("dialog")
+            .setAttribute("open", true)
+          return false
+        }
+
+        document.querySelector('[name="_next"]').value =
+          window.location + "?ok=true"
+
+        form = document.getElementById("form")
+        form.addEventListener("submit", handleFormSubmit)
+      }
+
+      function handleFormSubmit() {
+        event.preventDefault()
+        const from = event.target
+        const isValid = form.matches(":valid")
+
+        const invalidElement = [...form.elements].find(
+          (element) => element.value && element.value.trim() == ""
+        )
+
+        if (invalidElement) {
+          invalidElement.value = invalidElement.value.trim()
+          invalidElement.focus()
+          return false
+        }
+        if (isValid) form.submit()
+      }
+      function handleCloseDialog() {
+        document.querySelector("dialog").removeAttribute("open")
+      }
+    </script>
+  </body>
+</html>
