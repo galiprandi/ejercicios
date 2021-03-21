@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meta-tag-generator</title>
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <p>
+        <a
+          href="https://search.google.com/test/rich-results?utm_campaign=sdtt&utm_medium=message"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Google</a
+        >
+        <a href="https://metatags.io/" target="_blank" rel="noopener noreferrer"
+          >metatags.io</a
+        >
+      </p>
+      <nav>
+        <button
+          onclick="copyToClipboard(document.getElementById('headerResult').textContent)"
+        >
+          Copy to Clipboard
+        </button>
+      </nav>
+    </header>
+
+    <main id="app" class="container">
+      <div class="form">
+        <form>
+          <fieldset>
+            <legend>Website data</legend>
+            <input type="text" name="charset" />
+            <input type="text" name="viewport" />
+            <input type="text" name="title" />
+            <input type="text" name="description" />
+            <input type="url" name="url" />
+            <input type="text" name="author" />
+            <input type="text" name="image" />
+            <input type="text" name="favicon" />
+
+            <!-- Open Graph -->
+            <input
+              type="text"
+              name="ogtype"
+              placeholder="Open Graph (website, article, book, profile, music, video)"
+              list="ogtype"
+            />
+            <datalist id="ogtype">
+              <option value="website" selected>website</option>
+              <option value="article">article</option>
+              <option value="book">book</option>
+              <option value="profile">profile</option>
+              <option value="music">music</option>
+              <option value="video">video</option>
+            </datalist>
+          </fieldset>
+        </form>
+      </div>
+      <div class="results">
+        <pre class="headerResult" id="headerResult"></pre>
+        <!-- <textarea name="header" id="headerResult" cols="90" rows="20"></textarea -->
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

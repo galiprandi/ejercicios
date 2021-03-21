@@ -1,0 +1,28 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+form {
+  font-family: inherit;
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+
+  legend {
+    padding: 1em;
+  }
+
+  input {
+    line-height: 2em;
+  }
+
+  .helper {
+    color: tomato;
+    font-size: small;
+  }
+}
