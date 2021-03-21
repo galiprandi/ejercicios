@@ -4,7 +4,7 @@ let data = {
   charset: 'utf-8',
   viewport: 'width=device-width, initial-scale=1',
   favicon: 'favicon.ico',
-  ogtype: 'website',
+  type: 'website',
 }
 
 function initApp() {
@@ -39,6 +39,7 @@ function syncFromData(key, value) {
 
 // Render head information
 function renderHeader({
+  charset,
   viewport,
   title,
   description,
@@ -46,11 +47,11 @@ function renderHeader({
   favicon,
   image,
   url,
-  ogtype,
+  type,
 }) {
   let header = []
 
-  header.push(`<meta charset="UTF-8" />`)
+  if (charset) header.push(`<meta charset="${charset}" />`)
   if (viewport) header.push(`<meta name="viewport" content="${viewport}">`)
   if (title) header.push(`<title>${title}</title>`)
 
@@ -67,11 +68,12 @@ function renderHeader({
   if (description)
     header.push(`<meta property="og:description" content="${description}" />`)
   if (url) header.push(`<meta property="og:url" content="${url}" />`)
-  if (ogtype) header.push(`<meta property="og:type" content="${ogtype}" />`)
+  if (type) header.push(`<meta property="og:type" content="${type}" />`)
   if (image) header.push(`<meta property="og:image" content="${image}" />`)
 
   // Twitter
   header.push(`\n<!-- Twitter -->`)
+  header.push(`<meta name="twitter:card" content="summary_large_image" />`)
 
   if (url) header.push(`<meta name="twitter:url" content="${url}" />`)
   if (title) header.push(`<meta name="twitter:title" content="${title}" />`)

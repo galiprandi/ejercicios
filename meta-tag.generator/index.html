@@ -10,17 +10,6 @@
   </head>
   <body>
     <header>
-      <p>
-        <a
-          href="https://search.google.com/test/rich-results?utm_campaign=sdtt&utm_medium=message"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Google</a
-        >
-        <a href="https://metatags.io/" target="_blank" rel="noopener noreferrer"
-          >metatags.io</a
-        >
-      </p>
       <nav>
         <button
           onclick="copyToClipboard(document.getElementById('headerResult').textContent)"
@@ -35,23 +24,55 @@
         <form>
           <fieldset>
             <legend>Website data</legend>
-            <input type="text" name="charset" />
-            <input type="text" name="viewport" />
-            <input type="text" name="title" />
-            <input type="text" name="description" />
-            <input type="url" name="url" />
-            <input type="text" name="author" />
-            <input type="text" name="image" />
-            <input type="text" name="favicon" />
+            <input
+              type="text"
+              name="charset"
+              placeholder="This element specifies the document's character encoding"
+            />
+            <input
+              type="text"
+              name="viewport"
+              placeholder="The browser's viewport is the area of the window in which web content can be seen."
+            />
+            <input
+              type="text"
+              name="title"
+              placeholder="This can be used to add a title to the document."
+            />
+            <input
+              type="text"
+              name="description"
+              placeholder="Specifying a description that includes keywords relating to the content of your page is useful as it has the potential to make your page appear higher in relevant searches performed in search engines."
+            />
+            <input
+              type="url"
+              name="url"
+              placeholder="The canonical URL of your object that will be used as its permanent ID in the graph."
+            />
+            <input
+              type="text"
+              name="author"
+              placeholder="Specifying an author is beneficial in many ways: it is useful to be able to understand who wrote the page."
+            />
+            <input
+              type="text"
+              name="image"
+              placeholder="An image URL which should represent your object within the graph."
+            />
+            <input
+              type="text"
+              name="favicon"
+              placeholder="A favicon is a graphic image (icon) associated with a Web page"
+            />
 
             <!-- Open Graph -->
             <input
               type="text"
-              name="ogtype"
-              placeholder="Open Graph (website, article, book, profile, music, video)"
-              list="ogtype"
+              name="type"
+              placeholder="The type of your object, depending on the type you specify, other properties may also be required. (website, article, book, profile, music, video)"
+              list="type"
             />
-            <datalist id="ogtype">
+            <datalist id="type">
               <option value="website" selected>website</option>
               <option value="article">article</option>
               <option value="book">book</option>

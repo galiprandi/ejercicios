@@ -1,9 +1,35 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: white;
+}
+
+header,
+main {
+  max-width: 760px;
+  margin: auto;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 1em;
+}
+
+header nav {
+  text-align: center;
 }
 
 form {
   font-family: inherit;
+  margin: 2em 0;
 }
 
 form fieldset {
@@ -14,20 +40,12 @@ form fieldset {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1em;
-  margin-bottom: 1em;
-}
-
-form legend {
-  padding: 1em;
+  gap: 2em;
+  padding: 2em;
+  border-radius: 5px;
 }
 
 form input {
   line-height: 2em;
-}
-
-form .helper {
-  color: tomato;
-  font-size: small;
 }
 /*# sourceMappingURL=main.css.map */

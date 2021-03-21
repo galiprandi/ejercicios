@@ -1,28 +1,49 @@
+$border-radius: 5px;
+$backgroung-color: white;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
+  background-color: $backgroung-color;
+}
+
+header,
+main {
+  max-width: 760px;
+  margin: auto;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: $backgroung-color;
+  padding: 1em;
+}
+
+header nav {
+  text-align: center;
 }
 
 form {
   font-family: inherit;
+  margin: 2em 0;
 
   fieldset {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    margin-bottom: 1em;
-  }
-
-  legend {
-    padding: 1em;
+    gap: 2em;
+    padding: 2em;
+    border-radius: $border-radius;
   }
 
   input {
     line-height: 2em;
-  }
-
-  .helper {
-    color: tomato;
-    font-size: small;
   }
 }
