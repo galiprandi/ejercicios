@@ -12,4 +12,4 @@ FORMULARIOS:
 
 IMPLEMENTACIONES:
 
-- [3 ways of same implementation.](./tree/master/classs-function-object)
+- [3 ways of same implementation.](./classs-function-object)
