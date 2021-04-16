@@ -12,4 +12,4 @@ FORMULARIOS:
 
 IMPLEMENTACIONES:
 
-- [3 ways of implementation.](./classs-function-object)
+- [3 formas de implementación](./classs-function-object)
